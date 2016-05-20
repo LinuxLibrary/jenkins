@@ -1,5 +1,5 @@
-# Continous Integration Notes
-# Installation process of the Continuous
+# Continous Integration with Jenkins
+# Installation process of Jenkins
 
 - Download and install latest version of JDK (Java 7 or newer version is recomended)
 
