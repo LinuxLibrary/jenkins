@@ -18,7 +18,7 @@ stop)
 ;;
 restart)
 	PID=`ps -ef | grep catalina | grep -v grep | awk '{print $2}'`
-	if [ -z $PID ]
+	if [[ -z $PID ]]
 	then
 		echo "Starting tomcat"
 		$CATALINA_HOME/bin/startup.sh
@@ -27,7 +27,7 @@ restart)
 		$CATALINA_HOME/bin/shutdown.sh
 		sleep 20
 		PID=`ps -ef | grep catalina | grep -v grep | awk '{print $2}'`
-		if [ -z $PID ]
+		if [[ -z $PID ]]
 		then
 			echo "Starting tomcat"
 			$CATALINA_HOME/bin/startup.sh
@@ -40,8 +40,8 @@ restart)
 	fi
 ;;
 status)
-	PID=`ps -ef | grep catalina | grep -v grep | awk '{print $2}'`
-	if [ ! -z $PID ]
+	PID=`ps -ef | grep catalina | grep -vi 'grep\|out$' | awk '{print $2}'`
+	if [[ ! -z $PID ]]
 	then
 		echo -e "Tomcat is running on pid : $PID"
 	else
