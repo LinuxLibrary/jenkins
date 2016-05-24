@@ -13,4 +13,40 @@
 	- If you are using jenkins through tomcat then
 		* Login to your tomcat webui, go to "Manager App" and click on "Reload Jenkins"
 			(or)
-		*
+		* http://<HOSTNAME/IP>:8080/jenkins/restart
+
+- Now you need to login to your HipChat web-ui and go to the room on which you have Admin access.
+	-- NOTE : To get admin access you need to create a room. You will be admin of the room that you've created.
+	* Login to your hipchat account ( https://<my-hipchat>.hipchat.com/rooms/ )
+		-- Ex: https://linux-library.hipchat.com/rooms/
+	* Find and click on the room you've created.
+	* Click on "Tokens"
+	* Under the "Create new token" section provide a lable for your notification message.
+	* Select "Send Notification" from "Scopes"
+	* Click on Create.
+
+	-- Above the "Create new token" section you'll get the Token with the lable you've give.
+		* Copy that token.
+	-- Now in the url after "tokens/" you'll notice a number that is your room number.
+		* Copy that number.
+
+- Now you need to configure these details in Jenkins.
+	* Go to your jenkins home page click on "Manage Jenkins"
+	* Click on "Configure System"
+	* Go to "Global HipChat Notifier Settings" and provide the following settings
+		* HipChat Server 	: api.hipchat.com
+		* Use v2 API		: yes
+		* API Token		: <Paste your token here>
+		* Room			: <Paste your room-id here>
+	* Click Save
+
+- Now in your project add the "Post-build Actions"
+	* Click on "Add post-build action"
+	* Select "HipChat Notifications" and provide the following details
+		* Project Room		: <Paste your room-id here>
+	* Under message templates provide the following values to get your build status notification.
+		* Job started	:	${JOB_NAME} #${BUILD_NUMBER}  ---  $STATUS  ---  ${URL}
+		* Job completed	:	${JOB_NAME} #${BUILD_NUMBER}  ---  $STATUS - $DURATION  ---  ${URL}
+
+- Now start the build and verify the build status notification in HipChat
+
