@@ -1,4 +1,4 @@
-# Preparing ENV Build Accounts
+# Setting up Jenkins user on Build ENVs
 
 - Mostly we can use the default jenkins user "jenkins" for builds. But we will not be able to login to that user as the login shell will be /bin/false for jenkins. So for that we need to change the default login shell for "jenkins" user.
 
