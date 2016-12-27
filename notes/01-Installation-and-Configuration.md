@@ -27,13 +27,9 @@ OS Platform: CentOS-7.2
 # yum install java-1.8.0-openjdk
 ```
 
-- Enable Jenkins on startup
+- Enable Jenkins on startup and start Jenkins
 ```
 # systemctl enable jenkins
-```
-
-- Start Jenkins
-```
 # systemctl start jenkins
 ```
 
