@@ -10,6 +10,7 @@
 # Let us try to configure builds on remote hosts
 
 > Before doing this install SSH plugin for GIT
+
 - Now to configure the hosts or sites which we want to ssh to then go to Manage Jenkins
 - Click on "Configure System"
 - Under the SSH Remote Connections add the SSH sites/hosts
