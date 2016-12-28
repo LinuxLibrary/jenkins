@@ -21,6 +21,7 @@
 
 > While we try to run the build it will show error due to the sudo settings for default tty. We need to disable that.
 
+
 - As root edit the /etc/sudoers file and search for "requiretty" and comment it. That line should look like below
 ```
 Defaults	!requiretty
