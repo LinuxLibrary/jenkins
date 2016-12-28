@@ -6,6 +6,10 @@
 - Search for a plugin in the search bar, check the plugin and select "Download and install after restart"
 - Now check the check box "Restart jenkins when installation is complete and no jobs are running"
 - Once jenkins has been restarted then login with the user
+
+# Let us try to configure builds on remote hosts
+
+> Before doing this install SSH plugin for GIT
 - Now to configure the hosts or sites which we want to ssh to then go to Manage Jenkins
 - Click on "Configure System"
 - Under the SSH Remote Connections add the SSH sites/hosts
