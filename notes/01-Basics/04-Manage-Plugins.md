@@ -18,7 +18,7 @@
 	- Username
 	- Password
 
-	> If you don't want to go with the password then leave it blank and provide the key file location
+	>> If you don't want to go with the password then leave it blank and provide the key file location
 
 	- Key File location
 - Save the details
