@@ -13,9 +13,9 @@
 	- Now let us try to get the logs 
 	- Go to the Build section, Add Step and select Execute Shell
 	- In the command section provide your commands
-```
+	```
 	sudo cat /var/log/messages
-```
+	```
 
 	> We need to use sudo as builds will be ran with the "jenkins" user by default
 	
