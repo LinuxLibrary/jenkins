@@ -16,7 +16,9 @@
 ```
 	sudo cat /var/log/messages
 ```
+
 	> We need to use sudo as builds will be ran with the "jenkins" user by default
+	
 	- Save the project
 
 > While we try to run the build it will show error due to the sudo settings for default tty. We need to disable that.
