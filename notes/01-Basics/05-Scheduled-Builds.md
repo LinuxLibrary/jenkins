@@ -16,6 +16,5 @@
 - Select ***Build Periodically***
 - Here the format used to schedule the builds is **Cron Job Format***
 ```
-Mins	Hours	Date	Month	Day
+Minutes		Hours	DayOfMonth(Date)	Month	DayOfWeek(DOW)
 ```
-
