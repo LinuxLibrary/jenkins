@@ -10,4 +10,4 @@
 ```
 - Save the project
 
-**Now within the project in the left pane you should see the ***Schedule Build*** option
+**Now within the project in the left pane you should see the ***Schedule Build*** option**
