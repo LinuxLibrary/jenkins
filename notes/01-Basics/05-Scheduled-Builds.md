@@ -9,5 +9,13 @@
 	sudo cat /var/log/messages
 ```
 - Save the project
-
 - Now within the project in the left pane you should see the ***Schedule Build*** option
+- Through this option we can schedule the build to run a a particular time.
+- The another way to run scheduled builds is we need to configure the project
+- Go to the ***Build Triggers*** section
+- Select ***Build Periodically***
+- Here the format used to schedule the builds is **Cron Job Format***
+```
+Mins	Hours	Date	Month	Day
+```
+
