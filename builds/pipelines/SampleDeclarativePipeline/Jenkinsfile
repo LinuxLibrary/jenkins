@@ -21,5 +21,10 @@ pipeline {
         echo 'Releasing project.....'
       }
     }
+    stage ('Post Release') {
+      steps {
+        echo 'Executing post release checks...'
+      }
+    }
   }
 }
