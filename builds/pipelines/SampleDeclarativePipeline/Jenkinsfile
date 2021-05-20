@@ -1,12 +1,20 @@
+//CODE_CHANGES = getGitChanges()
 pipeline {
   agent any
+  tools {
+    maven 'Maven'
+  }
+  environment {
+    NEW_VERSION = '1.2.0'
+    SERVER_CREDENTIALS = credentials('server-credentials') // Create credentials in Jenkins with type 'Username with Password' and the id as 'server-credentials'
+  }
   stages {
     stage ('Build') {
-      when {
-        expression {
-          (BRANCH_NAME == 'develop' || BRANCH_NAME == 'master') && CODE_CHANGES == true
-        }
-      }
+//      when {
+//        expression {
+//          (BRANCH_NAME == 'develop' || BRANCH_NAME == 'master') && CODE_CHANGES == true
+//        }
+//      }
       steps {
         echo 'Building project.....'
       }
@@ -14,6 +22,14 @@ pipeline {
     stage ('Deploy') {
       steps {
         echo 'Deploying project.....'
+        // echo "Deploying with ${SERVER_CREDENTIALS}"
+
+        // You should install the 'Credentials & Credentials Binding' plugins
+        // withCredentials([
+        //   usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PASSWD)
+        // ]) {
+        //   sh "some script ${USER} ${PASSWD}"
+        // }
       }
     }
     stage ('Test') {
