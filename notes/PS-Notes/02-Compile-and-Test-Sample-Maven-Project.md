@@ -10,7 +10,7 @@ $ apt install openjdk-15-jdk -y
 - Add the following lines to `~/.bashrc`
 
 ```
-export PATH=$PATH:/snap/terraform/current/bin:/usr/lib/jvm/java-15-openjdk-amd64
+export PATH=$PATH:/usr/lib/jvm/java-15-openjdk-amd64
 export JAVA_HOME=/usr/lib/jvm/java-15-openjdk-amd64
 ```
 
