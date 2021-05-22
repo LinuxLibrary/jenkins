@@ -1,1 +1,30 @@
 # Freestyle project with Post Build Actions to Archive Artifacts and collect the Test Reports
+
+- Go to the Jenkins dashboard
+- Select `New Item`
+- Enter a name for your project
+- Select `Freestyle project`
+- Click `OK`
+- Now you have been landed on the configure page of your new project
+- Go to the `Source Code Management` section
+- Select `Git`
+- Input your repository URL for the field `Repository URL`
+  - `https://github.com/LinuxLibrary/jgsu-spring-petclinic.git`
+- Input your branch name in the `Branches to build` section
+  - `main`
+- Build triggers: For Continuous Integration we have 2 options. We have several other options too.
+  - `GitHub hook trigger for GITScm polling`
+    - Once you check-in the code then the payload will be posted to GitHub through webhook
+  - `Poll SCM`
+    - In some case if you can't work with the webhook then you can opt this option
+    - This option scans the git repository for the period you mention
+- In the build section input your command
+  - `./mvnw package`
+- If you want your package you need to archive the artifact
+  - In the `Post-build Actions` select `Archive the artifacts`
+  - Input `target/*.jar`
+- If you want to see your test results in a nice formated way
+  - In the `Post-build Actions` select `Publish JUnit test result report`
+  - Input the location of your test reports
+    - `target/surefire-reports/*.xml`
+- Now you should notice the Build to trigger as per the period you have selected
