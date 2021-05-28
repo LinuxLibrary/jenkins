@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage ('CheckOut') {
             steps {
-                git url: 'https://github.com/LinuxLibrary/jgsu-spring-petclinic', branch: 'main'
+                git url: 'https://github.com/LinuxLibrary/jgsu-spring-petclinic', branch: 'master'
             }
         }
         stage ('Build') {
@@ -41,6 +41,12 @@ pipeline {
         success {
             junit '**/target/surefire-reports/TEST-*.xml'
             archiveArtifacts 'target/*.jar'
+            emailext subject: 'Job \&apos;${JOB_NAME}\&apos; (${BUILD_NUMBER}) is waiting for input',
+                body: 'Please go to ${BUILD_URL} and verify the build',
+                attachLog: true,
+                compressLog: true,
+                to: 'recipient@test.com',
+                recipientProviders: [upstreamDevelopers(), requestor()]
         }
     }
 }
