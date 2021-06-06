@@ -2,6 +2,10 @@
 
 - Run the Jenkins docker container
 - `docker run --name jenkins-docker --detach --privileged --network jenkins --network-alias docker --env DOCKER_HOST=tcp://192.168.1.10:2376 --env DOCKER_TLS_VERIFY=1 --env DOCKER_CERTS_PATH=/certs/client --volume jenkins-docker-certs:/certs/client:ro --volume jenkins-data:/var/jenkins_home --volume /var/run/docker.sock:/var/run/docker.sock --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean`
+- Here I am using the `DOCKER_HOST` environment variable as my `tcp://<HOST_IP>:<PORT>`
+- Docker over TLS should run on TCP port 2376
+- Also I am mounting the `docker.sock` socket file into the container
+    - This will help us the container to communicate to the docker host and get the details
 
 - Securing the API
     - On the Docker daemon’s host machine, we need to generate a CA certificate:
@@ -208,7 +212,7 @@
 
     - Now let us try to run some docker commands from the jenkins docker container
     > Note: It should show both Server and Client versions. 
-    > FYI: We haven't installed docker server in the container but we are accessing the docker daemon from the docker host
+    >> FYI: We haven't installed docker server in the container but we are accessing the docker daemon from the docker host
 
     ```
     $ docker exec jenkins-docker docker version
