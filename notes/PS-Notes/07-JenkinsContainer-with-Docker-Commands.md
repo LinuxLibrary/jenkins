@@ -1,4 +1,4 @@
-# Running Docker Commands in Jenkins (Docker) Container
+# Using Docker Engine API securely & Running Docker Commands in Jenkins (Docker) Container
 
 - Run the Jenkins docker container
 - `docker run --name jenkins-docker --detach --privileged --network jenkins --network-alias docker --env DOCKER_HOST=tcp://192.168.1.10:2376 --env DOCKER_TLS_VERIFY=1 --env DOCKER_CERTS_PATH=/certs/client --volume jenkins-docker-certs:/certs/client:ro --volume jenkins-data:/var/jenkins_home --volume /var/run/docker.sock:/var/run/docker.sock --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean`
